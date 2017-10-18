@@ -21,9 +21,10 @@ RUN pip install --upgrade pip \
 RUN apk add --no-cache --update wget ca-certificates
 
 RUN curl -Ls https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz \
-       -o /tmp/hugo.deb \
+       -o /tmp/hugo.tar.gz \
   && echo "${HUGO_SHA256}  /tmp/hugo.tar.gz" | sha256sum -c - \
-  && tar xf /tmp/hugo.tar.gz -C /tmp \
-  && ls -lah /tmp/hugo \
-  && mv /tmp/hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/bin/hugo \
-  && rm -rf /tmp/hugo* \
+  && tar xf /tmp/hugo.tar.gz -C /tmp/ \
+  && mv /tmp/hugo /usr/bin/hugo \
+  && rm -rf /tmp/hugo*
+
+RUN hugo version
