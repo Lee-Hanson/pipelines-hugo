@@ -12,6 +12,7 @@ RUN apk add --update --no-cache \
   python \
   py-pip \
   wget \
+  ssh \
   rsync
 
 RUN pip install --upgrade pip \
