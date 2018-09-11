@@ -4,7 +4,7 @@ USER root
 
 ENV HUGO_VERSION="0.48"
 
-RUN apk add --update --no-cache bash ca-certificates curl python py-pip wget openssh rsync \
+RUN apk add --update --no-cache bash ca-certificates curl git python py-pip wget openssh rsync \
     && pip install --upgrade pip \
     && pip install --no-cache-dir awscli pygments
 
