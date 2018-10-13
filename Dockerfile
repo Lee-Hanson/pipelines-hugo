@@ -2,7 +2,7 @@ FROM alpine:3.4
 
 USER root
 
-ENV HUGO_VERSION="0.48"
+ENV HUGO_VERSION="0.49.2"
 
 RUN apk add --update --no-cache bash ca-certificates curl git python py-pip wget openssh rsync \
     && pip install --upgrade pip \
